@@ -5,9 +5,8 @@ import org.apache.logging.log4j.Logger;
 
 /**
  * Classe principale. Lance l'application et traite les paramètres transmis.
- * paramètre:
- * dev : active le mode dévéloppeur (affiche la combinaison défenseur dès le départ)
- * aucun paramètre : active mode standard
+ * paramètre: dev : active le mode développeur (affiche la combinaison défenseur
+ * dès le départ) aucun paramètre : active mode standard
  * 
  * @author Michel Lopez
  * @version 1.0
@@ -19,7 +18,6 @@ public class Gameplay {
 	private static final Logger logger = LogManager.getLogger(Gameplay.class);
 
 	public static void main(String[] args) {
-
 
 		logger.info("Lancement application");
 
