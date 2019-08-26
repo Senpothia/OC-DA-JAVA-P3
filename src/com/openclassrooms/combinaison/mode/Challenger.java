@@ -29,6 +29,8 @@ public class Challenger extends Mode {
 		this.nbDigit = nbDigit;
 		this.nbTentatives=nbTentatives;
 		this.dev = dev;
+		this.attaquant = "Joueur";
+		this.defenseur = "Machine";
 		
 	}
 /**
@@ -44,7 +46,8 @@ public class Challenger extends Mode {
 
 		System.out.println("Mode Challenger actif");
 		this.combMachine = alea.aleatoire(getNbDigit());// La machine choisit une combinaison aléatoire
-		if (dev) {System.out.println("Combinaison Machine: " + convertCombString(this.combMachine)); // On affiche la combinaison
+		this.combDefenseur = convertCombString(this.combMachine);
+		if (dev) {System.out.println("Combinaison Machine: " + this.combDefenseur ); // On affiche la combinaison
 		}																	// Machine
 
 		do {
@@ -60,7 +63,7 @@ public class Challenger extends Mode {
 																											// propose
 																											// sa
 																											// combinaison
-			resJoueur = this.evaluer(this.combMachine, this.combJoueur,""); // Evaluation du résultat associé à la
+			resJoueur = this.evaluer(this.combMachine, this.combJoueur,"Joueur","Machine"); // Evaluation du résultat associé à la
 																			// combinaison proposée par le Joueur
 			tentatives--;
 			Partie.afficheur.resultat(getResJoueur(), getNbDigit()); // On affiche le résultat de l'évaluation
@@ -68,7 +71,7 @@ public class Challenger extends Mode {
 		}
 
 		while (tentatives > 0 && ! isResultatFinal());
-
+		setPerdant(this.attaquant);
 		return resultatFinal;
 	}
 }

@@ -168,7 +168,7 @@ public class Partie {
 
 		mode.jouer(); // On joue la partie selon le mode choisi
 
-		afficheur.resultatFinal(mode.isResultatFinal(), mode.getVainqueur());
+		afficheur.resultatFinal(mode.isResultatFinal(), mode.getVainqueur(),mode.getPerdant(),mode.getCombDefenseur());
 		afficheur.finDePartie(); // On interroge sur une nouvelle partie
 		mode.setResultatFinal(false); // Réinitialisation résultat de partie
 		nouvellePartie = lecteur.lecture(-1);

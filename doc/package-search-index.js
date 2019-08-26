@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.openclassrooms.combinaison"},{"l":"com.openclassrooms.combinaison.mode"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.openclassrooms.combinaison.mode"}]

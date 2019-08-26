@@ -107,7 +107,7 @@ public class Afficheur {
 	 * @param boolean resultat indique si la partie est gagnée ou perdue
 	 * @param String  vainqueur indique le nom du vainqueur
 	 */
-	void resultatFinal(boolean resultat, String vainqueur) {
+	void resultatFinal(boolean resultat, String vainqueur, String Perdant, String ComDefenseur) {
 		logger.info("Méthode resultat - Affichage résultat final de la partie");
 		System.out.println("");
 
@@ -120,7 +120,8 @@ public class Afficheur {
 		else {
 
 			System.out.println("");
-			System.out.println("Dommage! Vous avez perdu!");
+			System.out.printf("Dommage! %s, vous avez perdu!\n", Perdant);
+			System.out.println("Voici la combinaison défenseur: " + ComDefenseur );
 		}
 
 	}

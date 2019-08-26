@@ -28,12 +28,25 @@ public abstract class Mode {
 	protected int[] propMachine = new int[this.nbDigit]; // Proposition Machine/Joueur 2
 	protected String[] resJoueur;
 	protected String[] resMachine;
+	protected String combDefenseur;    // Combinaison secrète à afficher en cas de défaite de l'attaquant
 	protected boolean actif = false;
 	protected boolean dev = false; 
 	/**
 	 * Nom du vainqueur
 	 */
 	protected String vainqueur;
+	/**
+	 * Nom du perdant
+	 */
+	protected String perdant;
+	/**
+	 * Nom de l'attaquant
+	 */
+	protected String attaquant;
+	/**
+	 * Nom du défenseur
+	 */
+	protected String defenseur;
 	/**
 	 * Nonbre de chiffre de la combinaison
 	 */
@@ -82,8 +95,25 @@ public abstract class Mode {
 		this.vainqueur = vainqueur;
 	}
 
+	public String getPerdant() {
+		return perdant;
+	}
+
+	public void setPerdant(String perdant) {
+		this.perdant = perdant;
+	}
+	
+	public String getCombDefenseur() {
+		return combDefenseur;
+	}
+
+	public void setCombDefenseur(String combDefenseur) {
+		this.combDefenseur = combDefenseur;
+	}
+
 	/**
-	 * Convertit un tableau en String
+	 * Convertit un tableau de string en String
+	 *
 	 * @param comb
 	 * 			Tableau représentant une combinaison
 	 * @return
@@ -156,7 +186,7 @@ public abstract class Mode {
 	 * 			combinaison proposée
 	 */
 
-	String[] evaluer(int[] combDefenseur, int[] combAttaquant, String attaquant) { // arguments: (combMachine, combJouer)
+	String[] evaluer(int[] combDefenseur, int[] combAttaquant, String attaquant, String defenseur) { // arguments: (combMachine, combJouer)
 		logger.debug("Méthode evaluer() - Classe Mode");
 		String[] resultat = new String[nbDigit]; // Tableau contenant résultat d'évaluation: "++-+-...-+"
 		int nbDigitOk = 0;
@@ -185,8 +215,10 @@ public abstract class Mode {
 
 			this.setResultatFinal(true); // La partie est finie: l'attaquant a gagné
 			this.setVainqueur(attaquant);
+			this.setPerdant(defenseur);
 			return resultat;
 		}
+		this.setPerdant(defenseur);
 		return resultat;
 	}
 	

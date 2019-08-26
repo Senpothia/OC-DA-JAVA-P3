@@ -27,6 +27,8 @@ public class Duel extends Mode {
 		this.nbDigit = nbDigit;
 		this.nbTentatives = nbTentatives;
 		this.dev = dev;
+		this.attaquant = "";
+		this.defenseur = "";
 		
 	}
 	/**
@@ -44,45 +46,59 @@ public class Duel extends Mode {
 		int tentatives = getNbTentatives();
 
 		// Le joueur entre une combinaison secrète
+		
 		System.out.printf("Entrez une combinaison secrète de %d chiffres\n", getNbDigit());
 		// lecture-Décomposition combinaison secrète Joueur1
 		combJoueur = Partie.lecteur.decomposition(Partie.lecteur.lecture(getNbDigit()),getNbDigit());
 		// La Machine choisit une combinaison secrète
+		
 		combMachine = alea.aleatoire(getNbDigit());
-
+		this.combDefenseur = convertCombString(this.combMachine);
 		// Affichage combinaison Machine
 		if (dev) {
-			System.out.println("Combinaison secrète de la Machine: " + convertCombString(combMachine));
+			System.out.println("Combinaison secrète de la Machine: " + this.combDefenseur);
 		}
 
 		System.out.printf("Joueur: Entrez une combinaison de %d chiffres\n", getNbDigit());
 		// Joueur fait une proposition
+		this.attaquant = "Joueur";
+		this.defenseur = "Machine";
 		propJoueur = Partie.lecteur.decomposition(Partie.lecteur.lecture(getNbDigit()),getNbDigit());
 		// Décomposition-Evaluation Joueur
-		resJoueur = this.evaluer(combMachine,propJoueur,"");
+		resJoueur = this.evaluer(combMachine,propJoueur,"Joueur", "Machine");
 		// Afficher résultat Joueur
 		Partie.afficheur.resultat(getResJoueur(), getNbDigit());
+		
 		// Machine fait une proposition
+		this.attaquant = "Machine";
+		this.defenseur = "Joueur";
+		
 		propMachine = alea.aleatoire(getNbDigit());
 		System.out.println("Proposition Machine: " + convertCombString(propMachine));
-		resMachine = this.evaluer(combJoueur, propMachine,"Machine");
+		resMachine = this.evaluer(combJoueur, propMachine,"Machine","Joueur");
 		Partie.afficheur.resultat(getResMachine(), getNbDigit());// On affiche le résultat de l'évaluation: "+-+...-+"
-		tentatives--;
+		
+		
 		do {
 
 			// Label1:
 			// Joueur fait une proposition
+			this.attaquant = "Joueur";
+			this.defenseur = "Machine";
 			System.out.printf("Joueur: Entrez une combinaison de %d chiffres\n", getNbDigit());
 			propJoueur = Partie.lecteur.decomposition(Partie.lecteur.lecture(getNbDigit()),getNbDigit());
 			// Décomposition-Evaluation Joueur
-			resJoueur = this.evaluer(combMachine, propJoueur,"");
+			resJoueur = this.evaluer(combMachine, propJoueur,"Joueur","Machine");
 
 			// Afficher résultat Joueur
 			Partie.afficheur.resultat(getResJoueur(), getNbDigit());
 
 			// Machine fait une proposition
+			
+			this.attaquant = "Machine";
+			this.defenseur = "Joueur";
 			propMachine = this.tirage(propMachine, getResMachine());
-			resMachine = this.evaluer(combJoueur, propMachine,"Machine");
+			resMachine = this.evaluer(combJoueur, propMachine,"Machine","Joueur");
 			Partie.afficheur.resultat(getResMachine(), getNbDigit()); // On affiche le résultat de l'évaluation: "+-+...-+"
 
 			tentatives--;
@@ -90,7 +106,7 @@ public class Duel extends Mode {
 
 		} while (tentatives > 0 && !isResultatFinal());
 
-
+		setPerdant("Combinaison non trouvée: aucun vainqueur");
 		return resultatFinal;
 	}
 
