@@ -12,6 +12,9 @@ import org.apache.logging.log4j.Logger;
  */
 
 public class Afficheur {
+	
+	
+	private static final Logger logger = LogManager.getLogger(Afficheur.class);
 	/**
 	 * Afficher le message d'accueil au lancement du programme
 	 * 
@@ -23,8 +26,6 @@ public class Afficheur {
 	 * @param nbTentatives Nombre de tentatives permises pour découvrir la
 	 *                     combinaison du défenseur
 	 */
-
-	private static final Logger logger = LogManager.getLogger(Afficheur.class);
 
 	public void accueil(boolean dev, boolean statusInit, int nbDigit, int nbTentatives) {
 
@@ -106,8 +107,10 @@ public class Afficheur {
 	 * 
 	 * @param boolean resultat indique si la partie est gagnée ou perdue
 	 * @param String  vainqueur indique le nom du vainqueur
+	 * @param String  perdant
+	 * @param ComDefenseur
 	 */
-	void resultatFinal(boolean resultat, String vainqueur, String Perdant, String ComDefenseur) {
+	void resultatFinal(boolean resultat, String vainqueur, String perdant, String ComDefenseur) {
 		logger.info("Méthode resultat - Affichage résultat final de la partie");
 		System.out.println("");
 
@@ -120,7 +123,7 @@ public class Afficheur {
 		else {
 
 			System.out.println("");
-			System.out.printf("Dommage! %s, vous avez perdu!\n", Perdant);
+			System.out.printf("Dommage! %s, vous avez perdu!\n", perdant);
 			System.out.println("Voici la combinaison défenseur: " + ComDefenseur );
 		}
 

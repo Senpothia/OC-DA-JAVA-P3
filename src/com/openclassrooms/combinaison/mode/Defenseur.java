@@ -4,23 +4,24 @@ import com.openclassrooms.combinaison.Partie;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 /**
- * Définit le mode de jeu défenseur
- * Hérite de la classe Mode
+ * Définit le mode de jeu défenseur.<br>
+ * Hérite de la classe Mode.<br>
  * Fonctionnement: la Machine cherche à deviner une combinaison 
- * choisie aléatoirement par le joueur
- * Redefinit la méthode abstraite jouer() de la classe Mode 
+ * choisie aléatoirement par le joueur.<br>
+ * Redéfinit la méthode abstraite jouer() de la classe Mode. 
  * @author Michel Lopez
  *  @version 1.0
  *
  */
 public class Defenseur extends Mode {
 
+	static Logger logger = LogManager.getLogger(Defenseur.class);
 	/** 
 	 * Constructeur 
 	 * @param nbDigit
 	 * @param nbTentatives
 	 */
-	static Logger logger = LogManager.getLogger(Defenseur.class);
+	
 	public Defenseur (int nbDigit, int nbTentatives, boolean dev) {
 		logger.debug("Constructeur Defenseur()");
 		this.nbDigit = nbDigit;

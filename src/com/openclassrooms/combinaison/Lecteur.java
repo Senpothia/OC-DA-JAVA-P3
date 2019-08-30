@@ -92,9 +92,9 @@ public class Lecteur {
 	}
 
 	/**
-	 * Gï¿½re la saisie au clavier d'un nombre entier attendu
+	 * Gère la saisie au clavier d'un nombre entier attendu
 	 * 
-	 * @param nbChiffres Nombre de caractère entiers attendus dans la saisie au
+	 * @param nbChiffres Nombre de caractères entiers attendus dans la saisie au
 	 *                   clavier
 	 * @return Valeur entier obtenue à partir du clavier
 	 */

@@ -15,18 +15,20 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Classe principale. Gère le déroulement intégrale de la partie.
+ * Gère le déroulement intégrale de la partie depuis le lancement jusqu'au résultat final
  * 
  * @author Michel Lopez
  *
  */
 
 public class Partie {
+	
+	static Logger logger = LogManager.getLogger(Partie.class);
 	/**
 	 * Fabrique du mode de jeu. Retourne une instance de type mode qui definit la
 	 * stratégie de jeu
 	 */
-	static Logger logger = LogManager.getLogger(Partie.class);
+	
 	private ModeFactory modeFactory = new ModeFactory();
 	/**
 	 * Objet Mode. Contient la stratégie/mode de jeu

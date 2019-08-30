@@ -5,7 +5,7 @@ import com.openclassrooms.combinaison.Partie;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 /**
- * Classe abstraite définisant un méthode abstraite jouer() variable selon le mode de jeu choisi.
+ * Classe abstraite définisant un méthode abstraite jouer() variable selon le mode de jeu choisi.<br>
  * La classe contient les méthodes communes à tous les modes héritées par les classes qui implémentent les modes
  * de jeu.
  * @author Michel Lopez
@@ -15,11 +15,14 @@ import org.apache.logging.log4j.Logger;
 
 
 public abstract class Mode {
+	
+	static Logger logger = LogManager.getLogger(Mode.class);
+	
 	/**
 	 * Instance de la classe Hasard définissant l'objet de traitement des saisie au clavier.
 	 * @see Hasard.java
 	 */
-	static Logger logger = LogManager.getLogger(Mode.class);
+	
 	public Hasard alea = new Hasard();
 
 	protected int[] combJoueur; // Combinaison secrète Joueur/Joueur
@@ -132,11 +135,7 @@ public abstract class Mode {
 		return combinaison;
 
 	}
-	/**
-	 * Méthode abstraite définissant le mode de jeu
-	 * @return
-	 * 			boolean indiquant le résultat de la partie
-	 */
+	
 
 	public int getNbTentatives() {
 		return nbTentatives;
@@ -163,6 +162,11 @@ public abstract class Mode {
 	public void setResultatFinal(boolean resultatFinal) {
 		this.resultatFinal = resultatFinal;
 	}
+	/**
+	 * Méthode abstraite définissant le mode de jeu
+	 * @return
+	 * 			boolean indiquant le résultat de la partie
+	 */
 	
 	public abstract boolean jouer();
 	

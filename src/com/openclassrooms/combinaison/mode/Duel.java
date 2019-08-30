@@ -5,10 +5,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 /**
  * Définit le mode de jeu Duel
- * Hérite de la classe Mode
+ * Hérite de la classe Mode.<br>
  * Fonctionnement: la Machine cherche à deviner une combinaison 
- * choisie aléatoirement par le joueur
- * Redefinit la méthode abstraite jouer() de la classe Mode 
+ * choisie aléatoirement par le joueur.<br>
+ * Redéfinit la méthode abstraite jouer() de la classe Mode.
  * @author Michel Lopez
  *  @version 1.0
  *
@@ -16,12 +16,14 @@ import org.apache.logging.log4j.Logger;
 
 public class Duel extends Mode {
 	
+	static Logger logger = LogManager.getLogger(Duel.class);
+	
 	/** 
 	 * Constructeur 
 	 * @param nbDigit
 	 * @param nbTentatives
 	 */
-	static Logger logger = LogManager.getLogger(Duel.class);
+	
 	public Duel (int nbDigit, int nbTentatives, boolean dev) {
 		logger.debug("Constructeur Duel()");
 		this.nbDigit = nbDigit;

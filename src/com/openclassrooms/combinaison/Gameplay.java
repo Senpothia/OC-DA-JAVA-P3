@@ -4,9 +4,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Classe principale. Lance l'application et traite les paramètres transmis.
- * paramètre: dev : active le mode développeur (affiche la combinaison défenseur
- * dès le départ) aucun paramètre : active mode standard
+ * Classe principale. Lance l'application et traite les paramètres transmis.<br>
+ * Paramètre:<br>
+ * dev : active le mode développeur (affiche la combinaison défenseur
+ * dès le départ)<br>
+ * si aucun paramètre : active mode standard
  * 
  * @author Michel Lopez
  * @version 1.0

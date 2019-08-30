@@ -4,11 +4,11 @@ import com.openclassrooms.combinaison.Partie;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 /**
- * Définit le mode de jeu Challenger
- * Hérite de la classe Mode
+ * Définit le mode de jeu Challenger.<br>
+ * Hérite de la classe Mode.<br>
  * Fonctionnement: l'utilisateur cherche à deviner une combinaison 
- * choisie aléatoirement par la Machine
- * Redefinit la méthode abstraite jouer() de la classe Mode 
+ * choisie aléatoirement par la Machine.<br>
+ * Redéfinit la méthode abstraite jouer() de la classe Mode.
  * @author Michel Lopez
  * @version 1.0
  *

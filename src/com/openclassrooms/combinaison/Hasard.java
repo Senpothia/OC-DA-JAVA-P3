@@ -36,8 +36,8 @@ public class Hasard {
 	 * Retourne un nombre entier inférieur à l'entier passé en paramètre et zéro
 	 * inclus
 	 * 
-	 * @param val Valeur entiï¿½re indiquant la valeur maximale du digit demandï¿½
-	 * @return Entier compris entre la valeur donnï¿½e en paramï¿½tre et 0 inclus
+	 * @param val Valeur entière indiquant la valeur maximale du digit demandée
+	 * @return Entier compris entre la valeur donnée en paramètre et 0 inclus
 	 */
 
 	public int moins(int val) {

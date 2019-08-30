@@ -6,10 +6,10 @@ import org.apache.logging.log4j.Logger;
 
 /**
  * Définit le mode de jeu Humains
- * Hérite de la classe Mode
+ * Hérite de la classe Mode.<br>
  * Fonctionnement: deux joueurs humains cherchent à deviner la combinaison 
- * secrète choisie par l'autre joueur. 
- * Redefinit la méthode abstraite jouer() de la classe Mode 
+ * secrète choisie par l'autre joueur.<br> 
+ * Redéfinit la méthode abstraite jouer() de la classe Mode<br>
  * @author Michel Lopez
  * @version 1.0
  *
@@ -18,12 +18,13 @@ import org.apache.logging.log4j.Logger;
 
 public class Humains extends Mode {
 
+	static Logger logger = LogManager.getLogger(Humains.class);
 	/** 
 	 * Constructeur 
 	 * @param nbDigit
 	 * @param nbTentatives
 	 */
-	static Logger logger = LogManager.getLogger(Humains.class);
+	
 	public Humains (int nbDigit, int nbTentatives, boolean dev) {
 		logger.debug("Constructeur Humains()");
 		this.nbDigit = nbDigit;
